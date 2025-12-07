@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AC Tenorio Real State</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body style="background-color: #31a84f; margin: 0">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container header-content">
+        <div class="logo">
+          <a href="index.html">
+            <img
+              src="img/logo-tenorio.png"
+              alt="Logo AC Tenorio Real State"
+              width="120"
+            />
+          </a>
+        </div>
+
+        <nav class="nav">
+          <a href="index.html">Inicio</a>
+          <a href="propiedades.html">Propiedades</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <button class="nav-toggle" id="navToggle">☰</button>
+      </div>
+    </header>
+
+    <!-- SECCIÓN HERO / PORTADA -->
+    <section id="inicio" class="hero">
+      <div class="container hero-content">
+        <h1>AC Tenorio Real State</h1>
+        <p>
+          Bienvenido/a. Aquí encontrarás propiedades cerca del Volcán Tenorio,
+          ideales para vivir, invertir o descansar.
+        </p>
+        <a href="propiedades.html" class="btn-primary">Ver propiedades</a>
+      </div>
+    </section>
+
+    <!-- SECCIÓN PROPIEDADES DESTACADAS -->
+    <section id="propiedades" class="section section-light">
+      <div class="container">
+        <h2>Propiedades destacadas</h2>
+        <p class="section-intro">
+          Estas son algunas de las propiedades más representativas. En la
+          sección de propiedades podrás ver el listado completo.
+        </p>
+
+        <div class="grid-propiedades">
+          <!-- CASA EN BIJAGUA -->
+          <article class="card-propiedad">
+            <div class="prop-img">
+              <img src="img/prueba 1.jpg" alt="Casa en Bijagua" />
+            </div>
+            <h3>Casa en Bijagua</h3>
+            <p>Lote amplio con vista al Volcán Tenorio.</p>
+
+            <div class="card-actions">
+              <a
+                href="propiedad.html?id=casa-bijagua&from=index"
+                class="btn-primary btn-detalle"
+              >
+                Ver detalles
+              </a>
+            </div>
+          </article>
+
+          <!-- FINCA RURAL -->
+          <article class="card-propiedad">
+            <div class="prop-img">
+              <img src="img/prueba 2.jpg" alt="Finca rural" />
+            </div>
+            <h3>Finca rural</h3>
+            <p>Ideal para descanso o proyecto agrícola.</p>
+
+            <div class="card-actions">
+              <a
+                href="propiedad.html?id=finca-rural&from=index"
+                class="btn-primary btn-detalle"
+              >
+                Ver detalles
+              </a>
+            </div>
+          </article>
+
+          <!-- TERRENO PLANO -->
+          <article class="card-propiedad">
+            <div class="prop-img">
+              <img src="img/prueba 3.jpg" alt="Terreno plano" />
+            </div>
+            <h3>Terreno plano</h3>
+            <p>Perfecto para construir o invertir.</p>
+
+            <div class="card-actions">
+              <a
+                href="propiedad.html?id=terreno-plano&from=index"
+                class="btn-primary btn-detalle"
+              >
+                Ver detalles
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN SOBRE MÍ -->
+    <section id="sobre-mi" class="section">
+      <div class="container about">
+        <div class="about-text">
+          <h2>Sobre mí</h2>
+          <p>
+            Aquí vas a escribir una pequeña introducción de la persona que vende
+            los bienes. Por ejemplo: años de experiencia, zona en la que
+            trabaja, enfoque (inversión, casas vacacionales, fincas, etc.).
+          </p>
+          <p>
+            Puedes añadir un segundo párrafo con algo más personal: valores,
+            forma de trabajar, acompañamiento al cliente, etc.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto-index" class="section section-light">
+      <div class="container contact">
+        <h2>Contacto</h2>
+        <p>
+          Si te interesa alguna propiedad o quieres recibir más información,
+          puedes contactarme:
+        </p>
+        <ul class="contact-list">
+          <li><strong>WhatsApp:</strong> +506 8733-1224</li>
+          <li><strong>Correo:</strong> correo@actenoriorealstate.com</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; <span id="year"></span> AC Tenorio Real State. Todos los
+          derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

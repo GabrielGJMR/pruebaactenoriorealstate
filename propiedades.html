@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Propiedades | AC Tenorio Real State</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <!-- HEADER FIJO PARA TODAS LAS PÁGINAS -->
+    <header class="header">
+      <div class="container header-content">
+        <div class="logo">
+          <a href="index.html">
+            <img
+              src="img/logo-tenorio.png"
+              alt="Logo AC Tenorio Real State"
+              width="120"
+            />
+          </a>
+        </div>
+
+        <nav class="nav">
+          <a href="index.html">Inicio</a>
+          <a href="propiedades.html">Propiedades</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <button class="nav-toggle" id="navToggle">☰</button>
+      </div>
+    </header>
+
+    <!-- HERO MÁS PEQUEÑO -->
+    <section class="hero" style="min-height: 40vh">
+      <div class="container hero-content">
+        <h1>Propiedades disponibles</h1>
+        <p>Aquí encontrarás el listado completo de propiedades.</p>
+      </div>
+    </section>
+
+    <!-- LISTADO DE PROPIEDADES COMPLETO -->
+    <section class="section section-light">
+      <div class="container">
+        <h2>Listado de propiedades</h2>
+
+        <div class="grid-propiedades">
+          <!-- PROPIEDAD 1 -->
+          <article class="card-propiedad">
+            <div class="prop-img">
+              <img src="img/prueba 1.jpg" alt="Casa en Bijagua" />
+            </div>
+            <h3>Casa en Bijagua</h3>
+            <p>Lote amplio con vista al Volcán Tenorio.</p>
+
+            <div class="card-actions">
+              <a
+                href="propiedad.html?id=casa-bijagua"
+                class="btn-primary btn-detalle"
+              >
+                Ver detalles
+              </a>
+            </div>
+          </article>
+
+          <!-- PROPIEDAD 2 -->
+          <article class="card-propiedad">
+            <div class="prop-img">
+              <img src="img/prueba 2.jpg" alt="Finca rural" />
+            </div>
+            <h3>Finca rural</h3>
+            <p>Ideal para descanso o proyecto agrícola.</p>
+
+            <div class="card-actions">
+              <a
+                href="propiedad.html?id=finca-rural"
+                class="btn-primary btn-detalle"
+              >
+                Ver detalles
+              </a>
+            </div>
+          </article>
+
+          <!-- PROPIEDAD 3 -->
+          <article class="card-propiedad">
+            <div class="prop-img">
+              <img src="img/prueba 3.jpg" alt="Terreno plano" />
+            </div>
+            <h3>Terreno plano</h3>
+            <p>Perfecto para construir o invertir.</p>
+
+            <div class="card-actions">
+              <a
+                href="propiedad.html?id=terreno-plano"
+                class="btn-primary btn-detalle"
+              >
+                Ver detalles
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; <span id="year"></span> AC Tenorio Real State. Todos los
+          derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

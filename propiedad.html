@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Propiedad | AC Tenorio Real State</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container header-content">
+        <div class="logo">
+          <a href="index.html">
+            <img
+              src="img/logo-tenorio.png"
+              alt="Logo AC Tenorio Real State"
+              width="120"
+            />
+          </a>
+        </div>
+
+        <nav class="nav">
+          <a href="index.html">Inicio</a>
+          <a href="propiedades.html">Propiedades</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <button class="nav-toggle" id="navToggle">☰</button>
+      </div>
+    </header>
+
+    <!-- HERO DE PROPIEDAD -->
+    <section class="hero" style="min-height: 40vh">
+      <div class="container hero-content">
+        <h1 id="prop-titulo">Propiedad</h1>
+        <p id="prop-resumen">Cargando información de la propiedad...</p>
+
+        <div class="volver-prop">
+          <!-- 👇 AQUÍ CAMBIAMOS EL BOTÓN: ya no apunta fijo a propiedades.html -->
+          <a href="#" class="btn-link-volver" id="btn-volver"> ← Volver </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETALLE DE LA PROPIEDAD -->
+    <section class="section section-light">
+      <div class="container">
+        <h2>Galería de la propiedad</h2>
+        <p class="section-intro" id="prop-descripcion">
+          Aquí verás más fotos y detalles de esta propiedad.
+        </p>
+
+        <!-- Carrusel principal -->
+        <div class="galeria">
+          <button class="galeria-btn" id="galeria-prev">‹</button>
+
+          <div class="galeria-viewport">
+            <img id="galeria-imagen" src="" alt="Imagen de la propiedad" />
+          </div>
+
+          <button class="galeria-btn" id="galeria-next">›</button>
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="galeria-thumbs" id="galeria-thumbs">
+          <!-- Se llenan con JS -->
+        </div>
+
+        <!-- ESPACIO PARA VIDEO (opcional) -->
+        <div id="video-contenedor" style="margin-top: 2rem">
+          <!-- Si agregas un video en JS se mostrará aquí -->
+        </div>
+
+        <h2 style="margin-top: 3rem">¿Te interesa esta propiedad?</h2>
+        <p class="section-intro">
+          Si deseas más información sobre esta propiedad o querés coordinar una
+          visita, puedes contactarme por WhatsApp o correo electrónico.
+        </p>
+
+        <div
+          class="contact-actions"
+          style="
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1.5rem;
+          "
+        >
+          <!-- Botón WhatsApp -->
+          <a id="btn-whatsapp-prop" class="btn-primary whatsapp-btn">
+            <img src="icon/whatsapp.png" alt="WhatsApp" class="icon-whatsapp" />
+            Consultar por WhatsApp
+          </a>
+
+          <!-- Botón Email -->
+          <a id="btn-email-prop" class="btn-email email-btn">
+            <img src="icon/email.png" alt="Email" class="icon-email" />
+            Consultar por correo
+          </a>
+        </div>
+
+        <!-- ===== LIGHTBOX PARA VER IMÁGENES ===== -->
+        <div id="lightbox" class="lightbox hidden">
+          <span id="lightbox-close" class="lightbox-close">&times;</span>
+
+          <img
+            id="lightbox-img"
+            class="lightbox-img"
+            src=""
+            alt="Imagen propiedad"
+          />
+
+          <button id="lightbox-prev" class="lightbox-btn prev">&#10094;</button>
+          <button id="lightbox-next" class="lightbox-btn next">&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; <span id="year"></span> AC Tenorio Real State. Todos los
+          derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto | AC Tenorio Real State</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <!-- HEADER (igual al de las demás páginas) -->
+    <header class="header">
+      <div class="container header-content">
+        <div class="logo">
+          <a href="index.html">
+            <img
+              src="img/logo-tenorio.png"
+              alt="Logo AC Tenorio Real State"
+              width="120"
+            />
+          </a>
+        </div>
+
+        <nav class="nav">
+          <a href="index.html">Inicio</a>
+          <a href="propiedades.html">Propiedades</a>
+
+          <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <button class="nav-toggle" id="navToggle">☰</button>
+      </div>
+    </header>
+
+    <!-- HERO DE CONTACTO (usa las mismas clases hero/hero-content) -->
+    <section class="hero hero-contacto" style="min-height: 40vh">
+      <div class="container hero-content">
+        <h1>Contáctame</h1>
+        <p>
+          Si deseas más información sobre alguna propiedad, necesitás asesoría
+          personalizada o tenés alguna consulta adicional, estoy disponible para
+          ayudarte con mucho gusto. Aquí abajo encontrarás las opciones para
+          contactarme.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE MEDIOS DE CONTACTO -->
+    <section class="section section-light">
+      <div class="container">
+        <h2>Medios de contacto</h2>
+        <p class="section-intro">
+          Elige la opción que prefieras. Responderé tu mensaje lo antes posible.
+        </p>
+
+        <div class="contact-actions">
+          <!-- WhatsApp -->
+          <a
+            class="btn-primary contact-btn whatsapp-btn"
+            href="https://wa.me/50687331224?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20una%20propiedad%20publicada%20en%20Tenorio%20Real%20State."
+            target="_blank"
+          >
+            <img src="icon/whatsapp.png" alt="WhatsApp" class="icon-whatsapp" />
+            Contactar por WhatsApp
+          </a>
+
+          <!-- Gmail -->
+          <a
+            class="btn-email contact-btn email-btn"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=g.murillo200906@gmail.com
+    &su=Consulta%20sobre%20propiedad&body=Hola,%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20una%20propiedad%20de%20Tenorio%20Real%20State."
+            target="_blank"
+          >
+            <img src="icon/email.png" alt="Email" class="icon-email" />
+            Enviar correo
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER (igual que en index) -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; <span id="year"></span> AC Tenorio Real State. Todos los
+          derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

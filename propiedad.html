@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Propiedad | AC Tenorio Real State</title>
+    <title>Propiedad | AC Tenorio Real Estate</title>
     <link rel="stylesheet" href="css/estilos.css" />
   </head>
   <body>
@@ -14,7 +14,7 @@
           <a href="index.html">
             <img
               src="img/logo-tenorio.png"
-              alt="Logo AC Tenorio Real State"
+              alt="Logo AC Tenorio Real Estate"
               width="120"
             />
           </a>
@@ -37,8 +37,7 @@
         <p id="prop-resumen">Cargando información de la propiedad...</p>
 
         <div class="volver-prop">
-          <!-- 👇 AQUÍ CAMBIAMOS EL BOTÓN: ya no apunta fijo a propiedades.html -->
-          <a href="#" class="btn-link-volver" id="btn-volver"> ← Volver </a>
+          <a href="#" class="btn-link-volver" id="btn-volver">← Volver</a>
         </div>
       </div>
     </section>
@@ -64,19 +63,53 @@
         </div>
 
         <!-- Thumbnails -->
-        <div class="galeria-thumbs" id="galeria-thumbs">
-          <!-- Se llenan con JS -->
-        </div>
+        <div class="galeria-thumbs" id="galeria-thumbs"></div>
 
         <!-- ESPACIO PARA VIDEO (opcional) -->
-        <div id="video-contenedor" style="margin-top: 2rem">
-          <!-- Si agregas un video en JS se mostrará aquí -->
-        </div>
+        <div id="video-contenedor" style="margin-top: 2rem"></div>
+
+        <!-- UBICACIÓN DE LA PROPIEDAD -->
+        <section class="mapa-section" style="margin-top: 3rem">
+          <h2>Ubicación de la propiedad</h2>
+
+          <div class="map-wrapper">
+            <!-- COLUMNA IZQUIERDA: MINI MAPA + BOTÓN -->
+            <div class="map-box">
+              <iframe
+                id="mapa-propiedad"
+                src=""
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+
+              <!-- ÚNICO BOTÓN "Ver en Google Maps" -->
+              <a
+                id="btn-maps"
+                class="btn-primary maps-btn"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="icon/maps.png" alt="Google Maps" class="icon-maps" />
+                Ver en Google Maps
+              </a>
+            </div>
+
+            <!-- COLUMNA DERECHA: DESCRIPCIÓN -->
+            <div class="map-info">
+              <p id="prop-ubicacion-text">
+                Bijagua de Upala, zona del Volcán Tenorio.
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- ============================================================= -->
 
         <h2 style="margin-top: 3rem">¿Te interesa esta propiedad?</h2>
         <p class="section-intro">
-          Si deseas más información sobre esta propiedad o querés coordinar una
-          visita, puedes contactarme por WhatsApp o correo electrónico.
+          Si deseas más información o querés coordinar una visita, puedes
+          contactarme por WhatsApp o correo electrónico.
         </p>
 
         <div
@@ -102,7 +135,7 @@
           </a>
         </div>
 
-        <!-- ===== LIGHTBOX PARA VER IMÁGENES ===== -->
+        <!-- LIGHTBOX -->
         <div id="lightbox" class="lightbox hidden">
           <span id="lightbox-close" class="lightbox-close">&times;</span>
 
@@ -123,7 +156,7 @@
     <footer class="footer">
       <div class="container">
         <p>
-          &copy; <span id="year"></span> AC Tenorio Real State. Todos los
+          &copy; <span id="year"></span> AC Tenorio Real Estate. Todos los
           derechos reservados.
         </p>
       </div>

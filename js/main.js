@@ -39,6 +39,12 @@ const PROPIEDADES = {
       "Esta casa en Bijagua cuenta con un lote amplio, vistas al Volcán Tenorio y un entorno ideal para vivir o invertir.",
     imagenes: ["img/prueba 1.jpg", "img/prueba 1.jpg"],
     video: "",
+
+    // 🔹 Datos de ubicación
+    ubicacionTexto: "Bijagua de Upala, zona del Volcán Tenorio.",
+    mapsEmbed:
+      "https://www.google.com/maps?q=10.4326687,-85.0948129&hl=es&z=16&output=embed",
+    mapsLink: "https://www.google.com/maps?q=10.4326687,-85.0948129",
   },
 
   "finca-rural": {
@@ -49,6 +55,12 @@ const PROPIEDADES = {
       "Finca rural perfecta para descanso, producción agrícola o proyecto turístico en la zona del Tenorio.",
     imagenes: ["img/prueba 2.jpg", "img/prueba 2.jpg"],
     video: "",
+
+    // 🔹 Ejemplo (luego cambias coordenadas reales)
+    ubicacionTexto: "Zona rural cercana al Volcán Tenorio (ejemplo).",
+    mapsEmbed:
+      "https://www.google.com/maps?q=10.400000,-85.000000&hl=es&z=16&output=embed",
+    mapsLink: "https://www.google.com/maps?q=10.400000,-85.000000",
   },
 
   "terreno-plano": {
@@ -59,6 +71,11 @@ const PROPIEDADES = {
       "Terreno plano con excelente ubicación para desarrollar tu proyecto de vivienda o inversión.",
     imagenes: ["img/prueba 3.jpg", "img/prueba 3.jpg"],
     video: "",
+
+    ubicacionTexto: "Terreno ubicado en zona estratégica cerca del Tenorio.",
+    mapsEmbed:
+      "https://www.google.com/maps?q=10.420000,-85.050000&hl=es&z=16&output=embed",
+    mapsLink: "https://www.google.com/maps?q=10.420000,-85.050000",
   },
 };
 
@@ -77,10 +94,16 @@ function cargarPropiedadDesdeURL() {
   const tituloEl = document.getElementById("prop-titulo");
   const resumenEl = document.getElementById("prop-resumen");
   const descEl = document.getElementById("prop-descripcion");
-  const galeriaEl = document.getElementById("galeria-imagenes");
+  const galeriaViewport = document.getElementById("galeria-imagen");
+  const thumbsEl = document.getElementById("galeria-thumbs");
   const videoEl = document.getElementById("video-contenedor");
   const btnWhatsApp = document.getElementById("btn-whatsapp-prop");
   const btnEmail = document.getElementById("btn-email-prop");
+
+  // 🔹 Elementos del bloque de ubicación
+  const mapaIframe = document.getElementById("mapa-propiedad");
+  const ubicacionTextoEl = document.getElementById("prop-ubicacion-text");
+  const btnMaps = document.getElementById("btn-maps");
 
   // Si no existe la propiedad
   if (!prop) {
@@ -88,34 +111,68 @@ function cargarPropiedadDesdeURL() {
     if (resumenEl)
       resumenEl.textContent =
         "La propiedad que buscas no existe o fue removida.";
-    if (galeriaEl) galeriaEl.innerHTML = "";
     if (descEl) descEl.textContent = "";
+    if (galeriaViewport) galeriaViewport.src = "";
+    if (thumbsEl) thumbsEl.innerHTML = "";
+    if (videoEl) videoEl.innerHTML = "";
+    if (ubicacionTextoEl) ubicacionTextoEl.textContent = "";
+    if (mapaIframe) mapaIframe.src = "";
+    if (btnMaps) btnMaps.removeAttribute("href");
     return;
   }
 
-  // Colocar textos
+  // Colocar textos principales
   if (tituloEl) tituloEl.textContent = prop.titulo;
   if (resumenEl) resumenEl.textContent = prop.resumen;
   if (descEl) descEl.textContent = prop.descripcion;
 
-  // ---- Galería de imágenes (para lightbox) ----
-  if (galeriaEl) {
-    galeriaEl.innerHTML = "";
-    prop.imagenes.forEach((src) => {
-      const card = document.createElement("article");
-      card.className = "card-propiedad";
+  // ---- Carrusel simple (imagen principal + thumbnails) ----
+  let indiceActual = 0;
 
-      const imgWrap = document.createElement("div");
-      imgWrap.className = "prop-img";
+  function mostrarImagen(index) {
+    if (!galeriaViewport || !prop.imagenes.length) return;
+    indiceActual = index;
+    galeriaViewport.src = prop.imagenes[indiceActual];
 
+    // marcar thumbnail activa
+    const thumbs = thumbsEl ? thumbsEl.querySelectorAll(".galeria-thumb") : [];
+    thumbs.forEach((th, i) => {
+      th.classList.toggle("thumb-activa", i === indiceActual);
+    });
+  }
+
+  if (thumbsEl) {
+    thumbsEl.innerHTML = "";
+    prop.imagenes.forEach((src, i) => {
+      const btn = document.createElement("button");
+      btn.className = "galeria-thumb";
       const img = document.createElement("img");
       img.src = src;
-      img.alt = prop.titulo;
-
-      imgWrap.appendChild(img);
-      card.appendChild(imgWrap);
-      galeriaEl.appendChild(card);
+      img.alt = prop.titulo + " miniatura " + (i + 1);
+      btn.appendChild(img);
+      btn.addEventListener("click", () => mostrarImagen(i));
+      thumbsEl.appendChild(btn);
     });
+  }
+
+  if (galeriaViewport && prop.imagenes.length) {
+    mostrarImagen(0);
+  }
+
+  // Botones siguiente / anterior del carrusel
+  const btnPrevCarrusel = document.getElementById("galeria-prev");
+  const btnNextCarrusel = document.getElementById("galeria-next");
+
+  if (btnPrevCarrusel && btnNextCarrusel && prop.imagenes.length > 1) {
+    btnPrevCarrusel.onclick = () => {
+      const nuevo =
+        (indiceActual - 1 + prop.imagenes.length) % prop.imagenes.length;
+      mostrarImagen(nuevo);
+    };
+    btnNextCarrusel.onclick = () => {
+      const nuevo = (indiceActual + 1) % prop.imagenes.length;
+      mostrarImagen(nuevo);
+    };
   }
 
   // ---- Video (opcional) ----
@@ -133,11 +190,26 @@ function cargarPropiedadDesdeURL() {
     }
   }
 
+  // 🔹 Ubicación: texto + mapa + botón
+  if (ubicacionTextoEl && prop.ubicacionTexto) {
+    ubicacionTextoEl.textContent = prop.ubicacionTexto;
+  }
+
+  if (mapaIframe && prop.mapsEmbed) {
+    mapaIframe.src = prop.mapsEmbed;
+  }
+
+  if (btnMaps && prop.mapsLink) {
+    btnMaps.href = prop.mapsLink;
+    btnMaps.target = "_blank";
+    btnMaps.rel = "noopener noreferrer";
+  }
+
   // ---- Botones de contacto personalizados ----
   const telefono = "50687331224";
   const email = "g.murillo200906@gmail.com";
 
-  const mensajeWhatsApp = `Hola, me gustaría obtener información sobre la propiedad "${prop.titulo}" que vi en la página AC Tenorio Real State.`;
+  const mensajeWhatsApp = `Hola, me gustaría obtener información sobre la propiedad "${prop.titulo}" que vi en la página AC Tenorio Real Estate.`;
   const urlWhatsApp =
     "https://wa.me/" +
     telefono +
@@ -145,7 +217,7 @@ function cargarPropiedadDesdeURL() {
     encodeURIComponent(mensajeWhatsApp);
 
   const asuntoEmail = "Consulta sobre propiedad: " + prop.titulo;
-  const cuerpoEmail = `Hola,\n\nMe gustaría obtener más información sobre la propiedad "${prop.titulo}" que vi en la página AC Tenorio Real State.\n\nGracias.`;
+  const cuerpoEmail = `Hola,\n\nMe gustaría obtener más información sobre la propiedad "${prop.titulo}" que vi en la página AC Tenorio Real Estate.\n\nGracias.`;
 
   const urlEmail =
     "https://mail.google.com/mail/?view=cm&fs=1" +
@@ -168,22 +240,17 @@ function cargarPropiedadDesdeURL() {
     btnEmail.rel = "noopener noreferrer";
   }
 
-  // ---- Botón "Volver" según origen ----
-  const btnVolver = document.querySelector(".btn-link-volver");
+  // ---- Botón "Volver" según origen (index / propiedades) ----
+  const btnVolverTexto = document.querySelector(".btn-link-volver");
   const origen = sessionStorage.getItem("origen-propiedad");
 
-  if (btnVolver && origen) {
+  if (btnVolverTexto && origen) {
     if (origen.includes("index.html")) {
-      btnVolver.href = "index.html";
-      btnVolver.textContent = "← Volver al inicio";
+      btnVolverTexto.textContent = "← Volver al inicio";
     } else if (origen.includes("propiedades.html")) {
-      btnVolver.href = "propiedades.html";
-      btnVolver.textContent = "← Volver al listado de propiedades";
+      btnVolverTexto.textContent = "← Volver al listado de propiedades";
     }
   }
-
-  // Activar lightbox para esta propiedad
-  activarGaleria(prop);
 }
 
 // Ejecutar al cargar la página
@@ -205,7 +272,6 @@ function abrirLightbox(index, imagenes) {
   if (!lightbox || !lightboxImg) return;
   lightboxImagenes = imagenes;
   lightboxIndex = index;
-
   lightboxImg.src = lightboxImagenes[lightboxIndex];
   lightbox.classList.remove("hidden");
 }
@@ -228,39 +294,33 @@ function anteriorImagen() {
   lightboxImg.src = lightboxImagenes[lightboxIndex];
 }
 
-// Eventos del lightbox (solo si existen en esta página)
 if (btnClose) btnClose.addEventListener("click", cerrarLightbox);
 if (btnNext) btnNext.addEventListener("click", siguienteImagen);
 if (btnPrev) btnPrev.addEventListener("click", anteriorImagen);
 
-// Cuando se genera la galería en cargarPropiedadDesdeURL(), agregamos eventos
-function activarGaleria(prop) {
-  const galeriaEl = document.getElementById("galeria-imagenes");
-  if (!galeriaEl || !prop || !prop.imagenes) return;
-
-  const imgs = galeriaEl.querySelectorAll("img");
-
-  imgs.forEach((img, index) => {
-    img.addEventListener("click", () => {
-      abrirLightbox(index, prop.imagenes);
-    });
+// Activar lightbox al hacer clic en la imagen grande del carrusel
+const galeriaViewportImg = document.getElementById("galeria-imagen");
+if (galeriaViewportImg) {
+  galeriaViewportImg.addEventListener("click", () => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const prop = PROPIEDADES[id];
+    if (!prop || !prop.imagenes) return;
+    abrirLightbox(lightboxIndex, prop.imagenes);
   });
 }
 
 /* =====================================================
-   BOTÓN "VOLVER" EN DETALLE DE PROPIEDAD
+   BOTÓN "VOLVER" QUE USA window.history.back()
    ===================================================== */
 const btnVolver = document.getElementById("btn-volver");
 
 if (btnVolver) {
   btnVolver.addEventListener("click", (e) => {
     e.preventDefault();
-
-    // Si hay historial, volvemos atrás (con scroll incluido)
     if (window.history.length > 1) {
       window.history.back();
     } else {
-      // Si por alguna razón no hay historial, como respaldo:
       window.location.href = "propiedades.html";
     }
   });

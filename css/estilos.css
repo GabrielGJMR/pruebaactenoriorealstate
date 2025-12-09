@@ -611,3 +611,169 @@ body {
 .lightbox-btn:hover {
   background: rgba(0, 0, 0, 0.7);
 }
+
+/* ====== UBICACIÓN / GOOGLE MAPS EN DETALLE ====== */
+
+.mapa-section {
+  margin-top: 3rem;
+}
+
+/* CONTENEDOR GENERAL EN DOS COLUMNAS */
+.ubicacion-prop {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 2rem 0 3rem;
+}
+
+/* CONTENEDOR DEL MAPA + BOTÓN */
+.mapa-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+}
+
+/* MINI MAPA */
+.mapa-wrapper iframe {
+  width: 100%;
+  height: 260px;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* BOTÓN ENCIMA DEL MAPA (ÚNICO) */
+.btn-maps-overlay {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.6rem; /* Más pequeño */
+  font-size: 0.9rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-maps-overlay:hover {
+  background: #365c30;
+  transform: translateX(-50%) translateY(-3px);
+}
+
+/* TEXTO A LA DERECHA */
+.ubicacion-texto {
+  flex: 1 1 260px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.ubicacion-texto p {
+  margin: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .ubicacion-prop {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ubicacion-texto {
+    align-items: center;
+  }
+
+  .btn-maps-overlay {
+    bottom: 8px;
+  }
+}
+
+/* Contenedor del mapa + descripción */
+.map-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin: 2rem 0 1rem;
+}
+
+/* Tarjeta del mini mapa */
+.map-box {
+  flex: 0 0 360px;
+  background: #e4f6ee;
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra el botón debajo del mapa */
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 260px;
+  border: 0;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+}
+
+/* Texto de la ubicación, a la derecha */
+.map-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.map-info #map-descripcion {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* Botón de Google Maps más pequeño con icono */
+.icon-maps {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  object-fit: contain;
+}
+
+.maps-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.78rem;
+  border-radius: 999px;
+}
+
+/* Responsive: mapa arriba, texto abajo en pantallas pequeñas */
+@media (max-width: 768px) {
+  .map-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map-box {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .map-info {
+    justify-content: center;
+    text-align: center;
+    margin-top: 0.75rem;
+  }
+}

@@ -21,7 +21,6 @@ document.addEventListener("click", (e) => {
   const link = e.target.closest("a");
   if (!link) return;
 
-  // Si el enlace va a propiedad.html?id=...
   if (link.href.includes("propiedad.html?id=")) {
     sessionStorage.setItem("origen-propiedad", window.location.pathname);
   }
@@ -31,185 +30,134 @@ document.addEventListener("click", (e) => {
 // ===============   DATOS DE PROPIEDADES   ============
 // =====================================================
 const PROPIEDADES = {
-  "casa-bijagua": {
-    id: "casa-bijagua",
-    titulo: "Casa en Bijagua",
-    resumen: "Lote amplio con vista al Volcán Tenorio.",
+  "los-angeles-nandayure": {
+    id: "los-angeles-nandayure",
+    titulo: "Los Ángeles de Nandayure",
+    resumen: "4 lotes de 1200 m² con árboles frutales y maderables.",
     descripcion:
-      "Esta casa en Bijagua cuenta con un lote amplio, vistas al Volcán Tenorio y un entorno ideal para vivir o invertir.",
-    imagenes: ["img/prueba 1.jpg", "img/prueba 1.jpg"],
-    video: "",
-
-    // 🔹 Datos de ubicación
-    ubicacionTexto: "Bijagua de Upala, zona del Volcán Tenorio.",
+      "Propiedad compuesta por 4 lotes de 1200 m². Cuenta con palos de naranja, limones y árboles maderables de pochote. Ideal para inversión, desarrollo o proyecto en zona tranquila.",
+    media: [
+      {
+        tipo: "imagen",
+        src: "properties/Los Angeles de Nandayure/IMG-20251228-WA0000.jpg",
+      },
+      {
+        tipo: "imagen",
+        src: "properties/Los Angeles de Nandayure/IMG-20251228-WA0001.jpg",
+      },
+      {
+        tipo: "imagen",
+        src: "properties/Los Angeles de Nandayure/IMG-20251228-WA0002.jpg",
+      },
+      {
+        tipo: "imagen",
+        src: "properties/Los Angeles de Nandayure/IMG-20251228-WA0003.jpg",
+      },
+      {
+        tipo: "imagen",
+        src: "properties/Los Angeles de Nandayure/IMG-20251228-WA0004.jpg",
+      },
+      {
+        tipo: "imagen",
+        src: "properties/Los Angeles de Nandayure/IMG-20251228-WA0006.jpg",
+      },
+      {
+        tipo: "imagen",
+        src: "properties/Los Angeles de Nandayure/IMG-20251228-WA0007.jpg",
+      },
+      {
+        tipo: "video",
+        src: "properties/Los Angeles de Nandayure/VID-20251228-WA0014.mp4",
+      },
+    ],
+    ubicacionTexto: "Nandayure, Guanacaste, Costa Rica.",
+    mapsLink: "https://maps.app.goo.gl/9VbbQP9o3MWVyHui7",
     mapsEmbed:
-      "https://www.google.com/maps?q=10.4326687,-85.0948129&hl=es&z=16&output=embed",
-    mapsLink: "https://www.google.com/maps?q=10.4326687,-85.0948129",
+      "https://www.google.com/maps?q=9.7818,-85.2294&hl=es&z=14&output=embed",
   },
 
-  "finca-rural": {
-    id: "finca-rural",
-    titulo: "Finca rural",
-    resumen: "Ideal para descanso o proyecto agrícola.",
+  "la-rancha-nandayure": {
+    id: "la-rancha-nandayure",
+    titulo: "La Rancha de Nandayure",
+    resumen: "2.5 hectáreas con naciente, 3 cabañas, salón y piscina.",
     descripcion:
-      "Finca rural perfecta para descanso, producción agrícola o proyecto turístico en la zona del Tenorio.",
-    imagenes: ["img/prueba 2.jpg", "img/prueba 2.jpg"],
-    video: "",
-
-    // 🔹 Ejemplo (luego cambias coordenadas reales)
-    ubicacionTexto: "Zona rural cercana al Volcán Tenorio (ejemplo).",
+      "Finca de 2 hectáreas y media con naciente. Incluye 3 cabañas, salón y piscina. Excelente opción para proyecto turístico, recreación familiar o inversión.",
+    media: [
+      {
+        tipo: "imagen",
+        src: "properties/La Rancha de Nandayure/59270ba059324c83b787ae1d33195428.jpg",
+      },
+      {
+        tipo: "imagen",
+        src: "properties/La Rancha de Nandayure/fbc040a9fea3470a871e4c43280421ae.jpg",
+      },
+      {
+        tipo: "imagen",
+        src: "properties/La Rancha de Nandayure/fdb1bed6940a4feba70860fcfa7f622d.jpg",
+      },
+      {
+        tipo: "imagen",
+        src: "properties/La Rancha de Nandayure/IMG-20251228-WA0012.jpg",
+      },
+      {
+        tipo: "imagen",
+        src: "properties/La Rancha de Nandayure/IMG-20251228-WA0013.jpg",
+      },
+      {
+        tipo: "imagen",
+        src: "properties/La Rancha de Nandayure/IMG-20251228-WA0017.jpg",
+      },
+      {
+        tipo: "imagen",
+        src: "properties/La Rancha de Nandayure/IMG-20251228-WA0018.jpg",
+      },
+    ],
+    ubicacionTexto: "Nandayure, Guanacaste, Costa Rica.",
+    mapsLink: "https://maps.app.goo.gl/vg4KpG4CRc2yQyav5",
     mapsEmbed:
-      "https://www.google.com/maps?q=10.400000,-85.000000&hl=es&z=16&output=embed",
-    mapsLink: "https://www.google.com/maps?q=10.400000,-85.000000",
-  },
-
-  "terreno-plano": {
-    id: "terreno-plano",
-    titulo: "Terreno plano",
-    resumen: "Perfecto para construir o invertir.",
-    descripcion:
-      "Terreno plano con excelente ubicación para desarrollar tu proyecto de vivienda o inversión.",
-    imagenes: ["img/prueba 3.jpg", "img/prueba 3.jpg"],
-    video: "",
-
-    ubicacionTexto: "Terreno ubicado en zona estratégica cerca del Tenorio.",
-    mapsEmbed:
-      "https://www.google.com/maps?q=10.420000,-85.050000&hl=es&z=16&output=embed",
-    mapsLink: "https://www.google.com/maps?q=10.420000,-85.050000",
+      "https://www.google.com/maps?q=9.8159,-85.2374&hl=es&z=14&output=embed",
   },
 };
+
+// ================== LIGHTBOX ELEMENTOS ==================
+const lightbox = document.getElementById("lightbox");
+const lightboxClose = document.getElementById("lightbox-close");
+const lightboxPrev = document.getElementById("lightbox-prev");
+const lightboxNext = document.getElementById("lightbox-next");
 
 // =====================================================
 // ===========   FUNCIÓN PARA CARGAR DETALLE   =========
 // =====================================================
 function cargarPropiedadDesdeURL() {
-  // Solo ejecutar si estamos en propiedad.html
   if (!window.location.pathname.endsWith("propiedad.html")) return;
 
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+  const id = new URLSearchParams(window.location.search).get("id");
   const prop = PROPIEDADES[id];
+  if (!prop) return;
 
-  // Elementos del DOM que vamos a modificar
   const tituloEl = document.getElementById("prop-titulo");
   const resumenEl = document.getElementById("prop-resumen");
   const descEl = document.getElementById("prop-descripcion");
-  const galeriaViewport = document.getElementById("galeria-imagen");
   const thumbsEl = document.getElementById("galeria-thumbs");
-  const videoEl = document.getElementById("video-contenedor");
+  const viewport = document.querySelector(".galeria-viewport");
+  const ubicacionTextoEl = document.getElementById("prop-ubicacion-text");
+  const mapaIframe = document.getElementById("mapa-propiedad");
+  const btnMaps = document.getElementById("btn-maps");
+
+  tituloEl.textContent = prop.titulo;
+  resumenEl.textContent = prop.resumen;
+  descEl.textContent = prop.descripcion;
+  ubicacionTextoEl.textContent = prop.ubicacionTexto;
+
+  // ================== BOTONES WHATSAPP Y EMAIL ==================
   const btnWhatsApp = document.getElementById("btn-whatsapp-prop");
   const btnEmail = document.getElementById("btn-email-prop");
 
-  // 🔹 Elementos del bloque de ubicación
-  const mapaIframe = document.getElementById("mapa-propiedad");
-  const ubicacionTextoEl = document.getElementById("prop-ubicacion-text");
-  const btnMaps = document.getElementById("btn-maps");
-
-  // Si no existe la propiedad
-  if (!prop) {
-    if (tituloEl) tituloEl.textContent = "Propiedad no encontrada";
-    if (resumenEl)
-      resumenEl.textContent =
-        "La propiedad que buscas no existe o fue removida.";
-    if (descEl) descEl.textContent = "";
-    if (galeriaViewport) galeriaViewport.src = "";
-    if (thumbsEl) thumbsEl.innerHTML = "";
-    if (videoEl) videoEl.innerHTML = "";
-    if (ubicacionTextoEl) ubicacionTextoEl.textContent = "";
-    if (mapaIframe) mapaIframe.src = "";
-    if (btnMaps) btnMaps.removeAttribute("href");
-    return;
-  }
-
-  // Colocar textos principales
-  if (tituloEl) tituloEl.textContent = prop.titulo;
-  if (resumenEl) resumenEl.textContent = prop.resumen;
-  if (descEl) descEl.textContent = prop.descripcion;
-
-  // ---- Carrusel simple (imagen principal + thumbnails) ----
-  let indiceActual = 0;
-
-  function mostrarImagen(index) {
-    if (!galeriaViewport || !prop.imagenes.length) return;
-    indiceActual = index;
-    galeriaViewport.src = prop.imagenes[indiceActual];
-
-    // marcar thumbnail activa
-    const thumbs = thumbsEl ? thumbsEl.querySelectorAll(".galeria-thumb") : [];
-    thumbs.forEach((th, i) => {
-      th.classList.toggle("thumb-activa", i === indiceActual);
-    });
-  }
-
-  if (thumbsEl) {
-    thumbsEl.innerHTML = "";
-    prop.imagenes.forEach((src, i) => {
-      const btn = document.createElement("button");
-      btn.className = "galeria-thumb";
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = prop.titulo + " miniatura " + (i + 1);
-      btn.appendChild(img);
-      btn.addEventListener("click", () => mostrarImagen(i));
-      thumbsEl.appendChild(btn);
-    });
-  }
-
-  if (galeriaViewport && prop.imagenes.length) {
-    mostrarImagen(0);
-  }
-
-  // Botones siguiente / anterior del carrusel
-  const btnPrevCarrusel = document.getElementById("galeria-prev");
-  const btnNextCarrusel = document.getElementById("galeria-next");
-
-  if (btnPrevCarrusel && btnNextCarrusel && prop.imagenes.length > 1) {
-    btnPrevCarrusel.onclick = () => {
-      const nuevo =
-        (indiceActual - 1 + prop.imagenes.length) % prop.imagenes.length;
-      mostrarImagen(nuevo);
-    };
-    btnNextCarrusel.onclick = () => {
-      const nuevo = (indiceActual + 1) % prop.imagenes.length;
-      mostrarImagen(nuevo);
-    };
-  }
-
-  // ---- Video (opcional) ----
-  if (videoEl) {
-    videoEl.innerHTML = "";
-    if (prop.video) {
-      const iframe = document.createElement("iframe");
-      iframe.width = "100%";
-      iframe.height = "400";
-      iframe.src = prop.video;
-      iframe.allow =
-        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      iframe.allowFullscreen = true;
-      videoEl.appendChild(iframe);
-    }
-  }
-
-  // 🔹 Ubicación: texto + mapa + botón
-  if (ubicacionTextoEl && prop.ubicacionTexto) {
-    ubicacionTextoEl.textContent = prop.ubicacionTexto;
-  }
-
-  if (mapaIframe && prop.mapsEmbed) {
-    mapaIframe.src = prop.mapsEmbed;
-  }
-
-  if (btnMaps && prop.mapsLink) {
-    btnMaps.href = prop.mapsLink;
-    btnMaps.target = "_blank";
-    btnMaps.rel = "noopener noreferrer";
-  }
-
-  // ---- Botones de contacto personalizados ----
   const telefono = "50687331224";
   const email = "g.murillo200906@gmail.com";
 
   const mensajeWhatsApp = `Hola, me gustaría obtener información sobre la propiedad "${prop.titulo}" que vi en la página AC Tenorio Real Estate.`;
+
   const urlWhatsApp =
     "https://wa.me/" +
     telefono +
@@ -240,88 +188,140 @@ function cargarPropiedadDesdeURL() {
     btnEmail.rel = "noopener noreferrer";
   }
 
-  // ---- Botón "Volver" según origen (index / propiedades) ----
-  const btnVolverTexto = document.querySelector(".btn-link-volver");
-  const origen = sessionStorage.getItem("origen-propiedad");
+  if (mapaIframe && prop.mapsEmbed) mapaIframe.src = prop.mapsEmbed;
+  if (btnMaps && prop.mapsLink) btnMaps.href = prop.mapsLink;
 
-  if (btnVolverTexto && origen) {
-    if (origen.includes("index.html")) {
-      btnVolverTexto.textContent = "← Volver al inicio";
-    } else if (origen.includes("propiedades.html")) {
-      btnVolverTexto.textContent = "← Volver al listado de propiedades";
+  let indiceActual = 0;
+  let lightboxIndex = 0;
+  const lightboxMedia = prop.media;
+
+  function renderLightbox() {
+    const old = lightbox.querySelector(".lightbox-media");
+    if (old) old.remove();
+
+    const item = lightboxMedia[lightboxIndex];
+
+    if (item.tipo === "imagen") {
+      const img = document.createElement("img");
+      img.src = item.src;
+      img.className = "lightbox-img lightbox-media";
+      lightbox.appendChild(img);
+    }
+
+    if (item.tipo === "video") {
+      const video = document.createElement("video");
+      video.src = item.src;
+      video.controls = true;
+      video.autoplay = true;
+      video.className = "lightbox-img lightbox-media";
+      lightbox.appendChild(video);
     }
   }
+
+  function abrirLightbox(index) {
+    lightboxIndex = index;
+    renderLightbox();
+    lightbox.classList.remove("hidden");
+  }
+
+  lightboxPrev.onclick = (e) => {
+    e.stopPropagation();
+    lightboxIndex =
+      (lightboxIndex - 1 + lightboxMedia.length) % lightboxMedia.length;
+    renderLightbox();
+  };
+
+  lightboxNext.onclick = (e) => {
+    e.stopPropagation();
+    lightboxIndex = (lightboxIndex + 1) % lightboxMedia.length;
+    renderLightbox();
+  };
+
+  lightboxClose.onclick = () => {
+    lightbox.classList.add("hidden");
+    const old = lightbox.querySelector(".lightbox-media");
+    if (old) old.remove();
+  };
+
+  lightbox.onclick = (e) => {
+    if (e.target === lightbox) lightboxClose.click();
+  };
+
+  function mostrarMedia(index) {
+    indiceActual = index;
+    viewport.innerHTML = "";
+    const item = prop.media[index];
+
+    if (item.tipo === "imagen") {
+      const img = document.createElement("img");
+      img.src = item.src;
+      img.id = "galeria-imagen";
+      img.style.cursor = "zoom-in";
+      img.onclick = () => abrirLightbox(index);
+      viewport.appendChild(img);
+    }
+
+    if (item.tipo === "video") {
+      const video = document.createElement("video");
+      video.src = item.src;
+      video.controls = true;
+      viewport.appendChild(video);
+    }
+
+    document
+      .querySelectorAll(".galeria-thumb")
+      .forEach((th, i) =>
+        th.classList.toggle("thumb-activa", i === indiceActual)
+      );
+  }
+
+  thumbsEl.innerHTML = "";
+  prop.media.forEach((item, i) => {
+    const btn = document.createElement("button");
+    btn.className = "galeria-thumb";
+
+    if (item.tipo === "imagen") {
+      const img = document.createElement("img");
+      img.src = item.src;
+      btn.appendChild(img);
+    } else {
+      const play = document.createElement("div");
+      play.className = "video-thumb";
+      play.textContent = "▶";
+      btn.appendChild(play);
+    }
+
+    btn.onclick = () => mostrarMedia(i);
+    thumbsEl.appendChild(btn);
+  });
+
+  mostrarMedia(0);
+
+  document.getElementById("galeria-prev").onclick = () =>
+    mostrarMedia((indiceActual - 1 + prop.media.length) % prop.media.length);
+
+  document.getElementById("galeria-next").onclick = () =>
+    mostrarMedia((indiceActual + 1) % prop.media.length);
 }
 
-// Ejecutar al cargar la página
 cargarPropiedadDesdeURL();
 
-// =====================================================
-// ===============   LIGHTBOX DE IMÁGENES   =============
-// =====================================================
-let lightboxIndex = 0;
-let lightboxImagenes = [];
+// ================== TECLADO LIGHTBOX ==================
+document.addEventListener("keydown", (e) => {
+  if (lightbox.classList.contains("hidden")) return;
 
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const btnClose = document.getElementById("lightbox-close");
-const btnPrev = document.getElementById("lightbox-prev");
-const btnNext = document.getElementById("lightbox-next");
+  if (e.key === "ArrowLeft") lightboxPrev.click();
+  if (e.key === "ArrowRight") lightboxNext.click();
+  if (e.key === "Escape") lightboxClose.click();
+});
 
-function abrirLightbox(index, imagenes) {
-  if (!lightbox || !lightboxImg) return;
-  lightboxImagenes = imagenes;
-  lightboxIndex = index;
-  lightboxImg.src = lightboxImagenes[lightboxIndex];
-  lightbox.classList.remove("hidden");
-}
-
-function cerrarLightbox() {
-  if (!lightbox) return;
-  lightbox.classList.add("hidden");
-}
-
-function siguienteImagen() {
-  if (!lightboxImagenes.length || !lightboxImg) return;
-  lightboxIndex = (lightboxIndex + 1) % lightboxImagenes.length;
-  lightboxImg.src = lightboxImagenes[lightboxIndex];
-}
-
-function anteriorImagen() {
-  if (!lightboxImagenes.length || !lightboxImg) return;
-  lightboxIndex =
-    (lightboxIndex - 1 + lightboxImagenes.length) % lightboxImagenes.length;
-  lightboxImg.src = lightboxImagenes[lightboxIndex];
-}
-
-if (btnClose) btnClose.addEventListener("click", cerrarLightbox);
-if (btnNext) btnNext.addEventListener("click", siguienteImagen);
-if (btnPrev) btnPrev.addEventListener("click", anteriorImagen);
-
-// Activar lightbox al hacer clic en la imagen grande del carrusel
-const galeriaViewportImg = document.getElementById("galeria-imagen");
-if (galeriaViewportImg) {
-  galeriaViewportImg.addEventListener("click", () => {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-    const prop = PROPIEDADES[id];
-    if (!prop || !prop.imagenes) return;
-    abrirLightbox(lightboxIndex, prop.imagenes);
-  });
-}
-
-/* =====================================================
-   BOTÓN "VOLVER" QUE USA window.history.back()
-   ===================================================== */
+// ================== BOTÓN VOLVER ==================
 const btnVolver = document.getElementById("btn-volver");
-
 if (btnVolver) {
-  btnVolver.addEventListener("click", (e) => {
+  btnVolver.onclick = (e) => {
     e.preventDefault();
-    if (window.history.length > 1) {
-      window.history.back();
-    } else {
-      window.location.href = "propiedades.html";
-    }
-  });
+    window.history.length > 1
+      ? history.back()
+      : (window.location.href = "propiedades.html");
+  };
 }

@@ -6,6 +6,7 @@
     <title>Propiedad | AC Tenorio Real Estate</title>
     <link rel="stylesheet" href="css/estilos.css" />
   </head>
+
   <body>
     <!-- HEADER -->
     <header class="header">
@@ -30,11 +31,11 @@
       </div>
     </header>
 
-    <!-- HERO DE PROPIEDAD -->
+    <!-- HERO -->
     <section class="hero" style="min-height: 40vh">
       <div class="container hero-content">
-        <h1 id="prop-titulo">Propiedad</h1>
-        <p id="prop-resumen">Cargando información de la propiedad...</p>
+        <h1 id="prop-titulo">Cargando propiedad...</h1>
+        <p id="prop-resumen">Cargando información...</p>
 
         <div class="volver-prop">
           <a href="#" class="btn-link-volver" id="btn-volver">← Volver</a>
@@ -42,19 +43,15 @@
       </div>
     </section>
 
-    <!-- DETALLE DE LA PROPIEDAD -->
+    <!-- DETALLE -->
     <section class="section section-light">
       <div class="container">
         <h2>Galería de la propiedad</h2>
-        <p class="section-intro" id="prop-descripcion">
-          Aquí verás más fotos y detalles de esta propiedad.
-        </p>
+        <p class="section-intro" id="prop-descripcion"></p>
 
-        <!-- Carrusel principal -->
+        <!-- GALERÍA -->
         <div class="galeria">
-          <div class="galeria-viewport">
-            <img id="galeria-imagen" src="" alt="Imagen de la propiedad" />
-          </div>
+          <div class="galeria-viewport"></div>
 
           <div class="galeria-controles">
             <button class="galeria-btn" id="galeria-prev">‹</button>
@@ -62,18 +59,14 @@
           </div>
         </div>
 
-        <!-- Thumbnails -->
+        <!-- THUMBNAILS -->
         <div class="galeria-thumbs" id="galeria-thumbs"></div>
 
-        <!-- ESPACIO PARA VIDEO (opcional) -->
-        <div id="video-contenedor" style="margin-top: 2rem"></div>
-
-        <!-- UBICACIÓN DE LA PROPIEDAD -->
+        <!-- UBICACIÓN -->
         <section class="mapa-section" style="margin-top: 3rem">
           <h2>Ubicación de la propiedad</h2>
 
           <div class="map-wrapper">
-            <!-- COLUMNA IZQUIERDA: MINI MAPA + BOTÓN -->
             <div class="map-box">
               <iframe
                 id="mapa-propiedad"
@@ -83,11 +76,9 @@
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
 
-              <!-- ÚNICO BOTÓN "Ver en Google Maps" -->
               <a
                 id="btn-maps"
                 class="btn-primary maps-btn"
-                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -96,20 +87,17 @@
               </a>
             </div>
 
-            <!-- COLUMNA DERECHA: DESCRIPCIÓN -->
             <div class="map-info">
-              <p id="prop-ubicacion-text">
-                Bijagua de Upala, zona del Volcán Tenorio.
-              </p>
+              <p id="prop-ubicacion-text"></p>
             </div>
           </div>
         </section>
-        <!-- ============================================================= -->
 
+        <!-- CONTACTO (NO TOCADO) -->
         <h2 style="margin-top: 3rem">¿Te interesa esta propiedad?</h2>
         <p class="section-intro">
-          Si deseas más información o querés coordinar una visita, puedes
-          contactarme por WhatsApp o correo electrónico.
+          Si deseas más información o coordinar una visita, puedes contactarme
+          por WhatsApp o correo electrónico.
         </p>
 
         <div
@@ -122,35 +110,31 @@
             margin-top: 1.5rem;
           "
         >
-          <!-- Botón WhatsApp -->
+          <!-- WhatsApp ORIGINAL -->
           <a id="btn-whatsapp-prop" class="btn-primary whatsapp-btn">
             <img src="icon/whatsapp.png" alt="WhatsApp" class="icon-whatsapp" />
             Consultar por WhatsApp
           </a>
 
-          <!-- Botón Email -->
+          <!-- Email ORIGINAL -->
           <a id="btn-email-prop" class="btn-email email-btn">
             <img src="icon/email.png" alt="Email" class="icon-email" />
             Consultar por correo
           </a>
         </div>
-
-        <!-- LIGHTBOX -->
-        <div id="lightbox" class="lightbox hidden">
-          <span id="lightbox-close" class="lightbox-close">&times;</span>
-
-          <img
-            id="lightbox-img"
-            class="lightbox-img"
-            src=""
-            alt="Imagen propiedad"
-          />
-
-          <button id="lightbox-prev" class="lightbox-btn prev">&#10094;</button>
-          <button id="lightbox-next" class="lightbox-btn next">&#10095;</button>
-        </div>
       </div>
     </section>
+
+    <!-- LIGHTBOX (SOLUCIONADO) -->
+    <div id="lightbox" class="lightbox hidden">
+      <span id="lightbox-close" class="lightbox-close">&times;</span>
+
+      <!-- Aquí JS inyecta imagen o video -->
+      <div id="lightbox-media"></div>
+
+      <button id="lightbox-prev" class="lightbox-btn prev">&#10094;</button>
+      <button id="lightbox-next" class="lightbox-btn next">&#10095;</button>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">

@@ -153,8 +153,8 @@ function cargarPropiedadDesdeURL() {
   const btnWhatsApp = document.getElementById("btn-whatsapp-prop");
   const btnEmail = document.getElementById("btn-email-prop");
 
-  const telefono = "50687331224";
-  const email = "g.murillo200906@gmail.com";
+  const telefono = "50660655493";
+  const email = "actenoriorealestate@gmail.com";
 
   const mensajeWhatsApp = `Hola, me gustaría obtener información sobre la propiedad "${prop.titulo}" que vi en la página AC Tenorio Real Estate.`;
 
